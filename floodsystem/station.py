@@ -10,8 +10,7 @@ for manipulating/modifying station data
 class MonitoringStation:
     """This class represents a river level monitoring station"""
 
-    def __init__(self, station_id, measure_id, label, coord, typical_range,
-                 river, town):
+    def __init__(self, station_id, measure_id, label, coord, typical_range, river, town):
 
         self.station_id = station_id
         self.measure_id = measure_id
