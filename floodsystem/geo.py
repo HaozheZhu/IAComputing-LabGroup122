@@ -11,8 +11,7 @@ from .utils import sorted_by_key  # noqa
 def rivers_with_stations(stations): 
     ans = set([])
     for station in stations: 
-        if(station.river not in ans): 
-            ans.add(station.river)
+        ans.add(station.river)
     ans = sorted(ans)
     return ans
 
