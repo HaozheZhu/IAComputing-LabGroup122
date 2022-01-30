@@ -32,7 +32,7 @@ def getStationNum(item):
 def rivers_by_station_number(stations, N): 
     river_stations = stations_by_river(stations)
     ans = [(river, len(river_stations[river])) for river in river_stations]
-    ans.sort(key = getStationNum, reverse=True)
+    ans.sort(key=getStationNum, reverse=True)
     while(ans[N-1][1] == ans[N][1]): 
         N += 1
     return ans[:N]
