@@ -22,7 +22,7 @@ def stations_by_river(stations):
     and values being a sorted list of the names of the monitoring stations on that river"""
     ans = {}
     for station in stations: 
-        if(station.river not in ans): 
+        if station.river not in ans: 
             ans[station.river] = [station.name]
         else: 
             ans[station.river].append(station.name)
@@ -40,6 +40,6 @@ def rivers_by_station_number(stations, N):
     river_stations = stations_by_river(stations)
     ans = [(river, len(river_stations[river])) for river in river_stations]
     ans.sort(key=getStationNum, reverse=True)
-    while(ans[N-1][1] == ans[N][1]): 
+    while ans[N-1][1] == ans[N][1]: 
         N += 1
     return ans[:N]
