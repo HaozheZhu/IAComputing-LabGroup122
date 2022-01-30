@@ -25,3 +25,14 @@ def stations_by_river(stations):
     for key in ans: 
         ans[key].sort()
     return ans
+
+def getStationNum(item): 
+    return item[1]
+
+def rivers_by_station_number(stations, N): 
+    river_stations = stations_by_river(stations)
+    ans = [(river, len(river_stations[river])) for river in river_stations]
+    ans.sort(key = getStationNum, reverse=True)
+    while(ans[N-1][1] == ans[N][1]): 
+        N += 1
+    return ans[:N]
