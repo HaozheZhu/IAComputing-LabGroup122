@@ -9,7 +9,7 @@ def run():
     print("{:d} stations. First 10 - {}".format(len(ans), ans[:10]))
     print("River Aire: {}".format(ans1["River Aire"]))
     print("River Cam: {}".format(ans1["River Cam"]))
-    print("River Tames: {}".format(ans1["River Thames"]))
+    print("River Thames: {}".format(ans1["River Thames"]))
 
 
 
