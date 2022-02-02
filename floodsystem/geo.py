@@ -7,6 +7,18 @@ geographical data.
 """
 
 from .utils import sorted_by_key  # noqa
+from haversine import haversine, Unit
+import floodsystem.utils
+
+def stations_by_distance(stations, p):
+    """Given a list of stations and their coordinates, returns distance from a given coordinate"""
+    response = []
+    for station in stations:
+        coord = station.coord
+        distance = haversine(p, coord)
+        response.append([station, distance])
+    response2 = floodsystem.utils.sorted_by_key(response, 1)
+    return response2
 
 def rivers_with_stations(stations): 
     """Given a list of MonitoringStation objects, returns a sorted list of names 
