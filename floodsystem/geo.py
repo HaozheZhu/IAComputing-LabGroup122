@@ -16,9 +16,9 @@ def stations_by_distance(stations, p):
     for station in stations:
         coord = station.coord
         distance = haversine(p, coord)
-        response.append([station, distance])
+        response.append([stations.station, distance])
     response2 = floodsystem.utils.sorted_by_key(response, 1)
-    return response
+    return response2
 
 def rivers_with_stations(stations): 
     """Given a list of MonitoringStation objects, returns a sorted list of names 
