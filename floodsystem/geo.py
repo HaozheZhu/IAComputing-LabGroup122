@@ -20,7 +20,7 @@ def stations_by_distance(stations, p):
     response2 = floodsystem.utils.sorted_by_key(response, 1)
     return response2
 
-def geo.stations_within_radius(stations, centre, r):
+def stations_within_radius(stations, centre, r):
     """Given a list of stations and their coordinates, returns distance from a given coordinate"""
     response = []
     for station in stations:
