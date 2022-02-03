@@ -16,7 +16,7 @@ def stations_by_distance(stations, p):
     for station in stations:
         coord = station.coord
         distance = haversine(p, coord)
-        response.append([stations.station, distance])
+        response.append([station.station_id, distance])
     response2 = floodsystem.utils.sorted_by_key(response, 1)
     return response2
 
