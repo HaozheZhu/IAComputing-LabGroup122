@@ -50,6 +50,6 @@ class MonitoringStation:
 def inconsistent_typical_range_stations(stations):
     response = []
     for station in stations:
-        if typical_range_consistent==False:
+        if typical_range_consistent(station)==False:
             response.append(station.name)
     return response
