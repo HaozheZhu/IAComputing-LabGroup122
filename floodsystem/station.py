@@ -39,6 +39,7 @@ class MonitoringStation:
         return d
 
     def typical_range_consistent(self):
+        '''Function that checks that, firstly there is data for the water levels at each station, then that the highest is not smaller than the lowest values'''
         try:
             if self.typical_range[0]>self.typical_range[1]:
                 return False
@@ -48,6 +49,7 @@ class MonitoringStation:
             return False
 
 def inconsistent_typical_range_stations(stations):
+    '''Function that, given the list of stations and water levels, returns a list of inconsistent data'''
     response = []
     for station in stations:
         if MonitoringStation.typical_range_consistent(station)==False:
