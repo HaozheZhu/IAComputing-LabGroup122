@@ -8,8 +8,8 @@ def run():
     r = 10.0
     response = stations_within_radius(stations, centre, r)
     response2 = []
-    for i in range(len(response)):
-        response2.append(response[i].name)
+    for station in response:
+        response2.append(station.name)
     print(response2)
 
 if __name__ == "__main__":
