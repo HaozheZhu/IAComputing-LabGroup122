@@ -7,6 +7,7 @@ def run():
     p = tuple((52.2053, 0.1218))
     response = stations_by_distance(stations, p)
     print(response[:10])
+    print(response[10:])
 
 if __name__ == "__main__":
     print("*** Task 1B: CUED Part IA Flood Warning System ***")
