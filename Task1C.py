@@ -7,7 +7,10 @@ def run():
     centre = tuple((52.2053, 0.1218))
     r = 10.0
     response = stations_within_radius(stations, centre, r)
-    print(response)
+    response2 = []
+    for i in range(len(response)):
+        response2.append(response[i].name)
+    print(response2)
 
 if __name__ == "__main__":
     print("*** Task 1C: CUED Part IA Flood Warning System ***")
