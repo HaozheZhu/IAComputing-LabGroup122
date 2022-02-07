@@ -8,9 +8,10 @@ def run():
     r = 10.0
     response = stations_within_radius(stations, centre, r)
     response2 = []
-    '''for station in response:
-        response2.append(station.name)'''
-    print(response)
+    for station in response:
+        response2.append(station.name)
+    response2.sort()
+    print(response2)
 
 if __name__ == "__main__":
     print("*** Task 1C: CUED Part IA Flood Warning System ***")
