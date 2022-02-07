@@ -10,7 +10,7 @@ def run():
     for i in range(len(response)):
         response2.append((response[i][0].name, response[i][0].town, response[i][1]))
     print(response2[:10])
-    print(response2[10:])
+    print(response2[-10:])
 
 if __name__ == "__main__":
     print("*** Task 1B: CUED Part IA Flood Warning System ***")
