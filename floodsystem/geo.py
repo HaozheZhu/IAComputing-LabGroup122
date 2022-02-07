@@ -27,7 +27,7 @@ def stations_within_radius(stations, centre, r):
         coord = station.coord
         distance = haversine(centre, coord)
         if distance<=r:
-            response.append(station.name)
+            response.append(station)
     response2 = floodsystem.utils.sorted_by_key(response, 0)
     return response2
 
