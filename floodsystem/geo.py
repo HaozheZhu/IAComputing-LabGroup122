@@ -28,8 +28,7 @@ def stations_within_radius(stations, centre, r):
         distance = haversine(centre, coord)
         if distance<=r:
             response.append(station)
-    response2 = sorted(response)
-    return response2
+    return response
 
 def rivers_with_stations(stations): 
     """Given a list of MonitoringStation objects, returns a sorted list of names 
