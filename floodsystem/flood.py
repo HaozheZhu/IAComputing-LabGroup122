@@ -18,7 +18,7 @@ def stations_level_over_threshold(stations, tol):
                 ans.sort(key=getRelLevel1, reverse=True)
     return ans
 
-def stations_hightst_rel_level(stations, N): 
+def stations_highest_rel_level(stations, N): 
     '''Function which returns the N stations with highest relative water levels'''
     valid_stations = []
     for station in stations: 

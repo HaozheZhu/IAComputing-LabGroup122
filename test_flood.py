@@ -7,4 +7,4 @@ def test_stations_level_over_threshold():
 
 def test_stations_hightst_rel_level(): 
     stations = build_station_list()
-    list = flood.stations_hightst_rel_level(stations, 10)
+    flood.stations_hightst_rel_level(stations, 10)

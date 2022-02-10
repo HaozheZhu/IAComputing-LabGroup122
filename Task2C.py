@@ -4,7 +4,7 @@ import floodsystem.flood as flood
 def run(): 
     stations = build_station_list()
     update_water_levels(stations)
-    list = flood.stations_hightst_rel_level(stations, 10)
+    list = flood.stations_highest_rel_level(stations, 10)
     for entry in list: 
         print("{} {}".format(entry.name, entry.relative_water_level(    )))
 
