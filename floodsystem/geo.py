@@ -15,7 +15,7 @@ def stations_by_distance(stations, p):
     for station in stations:
         coord = station.coord
         distance = haversine(p, coord)
-        response.append([station.name, distance])
+        response.append([station, distance])
     response2 = floodsystem.utils.sorted_by_key(response, 1)
     return response2
 
@@ -26,9 +26,8 @@ def stations_within_radius(stations, centre, r):
         coord = station.coord
         distance = haversine(centre, coord)
         if distance<=r:
-            response.append(station.name)
-    response2 = floodsystem.utils.sorted_by_key(response, 0)
-    return response2
+            response.append(station)
+    return response
 
 def rivers_with_stations(stations): 
     """Given a list of MonitoringStation objects, returns a sorted list of names 
