@@ -48,6 +48,13 @@ class MonitoringStation:
         except Exception:
             return False
 
+    def relative_water_level(self): 
+        '''Function that returns relative water level of the instance if data is available and consistent'''
+        if self.typical_range_consistent() and self.latest_level != None:
+            return (self.latest_level-self.typical_range[0])/(self.typical_range[1]-self.typical_range[0])
+        else: 
+            return None
+
 def inconsistent_typical_range_stations(stations):
     '''Function that, given the list of stations and water levels, returns a list of inconsistent data'''
     response = []
