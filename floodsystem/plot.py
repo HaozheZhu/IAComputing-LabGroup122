@@ -1,9 +1,7 @@
-from cProfile import label
 import matplotlib.pyplot as plt
-from datetime import datetime, timedelta
-
 
 def plot_water_levels(station, dates, levels): 
+    """Function for ploting graphs of water level against data"""
     if station.typical_range_consistent(): 
         high = [station.typical_range[1] for i in levels]
         low = [station.typical_range[0] for i in levels]
