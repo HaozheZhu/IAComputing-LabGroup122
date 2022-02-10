@@ -1,6 +1,10 @@
 from floodsystem.stationdata import build_station_list
-from floodsystem.flood import stations_level_over_threshold
+import floodsystem.flood as flood
 
 def test_stations_level_over_threshold(): 
     stations = build_station_list()
-    stations_level_over_threshold(stations, 0.9)
+    flood.stations_level_over_threshold(stations, 0.9)
+
+def test_stations_hightst_rel_level(): 
+    stations = build_station_list()
+    list = flood.stations_hightst_rel_level(stations, 10)
