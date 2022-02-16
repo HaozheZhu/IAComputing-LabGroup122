@@ -1,12 +1,9 @@
-import matplotlib.pyplot as plt
-import matplotlib
 from floodsystem.plot import plot_water_level_with_fit
 from floodsystem.datafetcher import fetch_measure_levels
 from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.flood import stations_highest_rel_level
-from floodsystem.analysis import polyfit
 import datetime
-import numpy as np
+
 
 def run(N):
     stations = build_station_list()
