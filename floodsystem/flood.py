@@ -1,3 +1,5 @@
+import datetime
+from floodsystem.datafetcher import fetch_measure_levels
 def getRelLevel1(item): 
     """Helper function to sort the list of tuples (river name, relative level) according to relative level"""
     
@@ -21,9 +23,9 @@ def stations_level_over_threshold(stations, tol):
 def stations_highest_rel_level(stations, N): 
     '''Function which returns the N stations with highest relative water levels'''
     valid_stations = []
-    for station in stations: 
-        if station.relative_water_level() != None:
-            if station.relative_water_level() < 100:
-                valid_stations.append(station)
+    for station in stations:
+        dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=2))
+        if station.relative_water_level() != None or dates:
+            valid_stations.append(station)
     valid_stations.sort(key=getRelLevel2, reverse=True)
     return valid_stations[:N]
