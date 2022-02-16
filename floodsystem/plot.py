@@ -27,7 +27,7 @@ def plot_water_levels(station, dates, levels):
     plt.show()
 
 def plot_water_level_with_fit(station, dates, levels, p):
-"""Function for ploting graphs of water level against data with line of best fit"""
+    """Function for ploting graphs of water level against data with line of best fit"""
     if station.typical_range_consistent(): 
         high = [station.typical_range[1] for i in levels]
         low = [station.typical_range[0] for i in levels]
