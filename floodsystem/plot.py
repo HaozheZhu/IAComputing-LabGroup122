@@ -38,7 +38,7 @@ def plot_water_level_with_fit(station, dates, levels, p):
     x2 = matplotlib.dates.num2date(x1)
     # Plot
     plt.plot(dates, levels)
-    plt.plot(x2, poly(x2-matplotlib.dates.num2date(d0)))
+    plt.plot(x2, poly(x1-d0))
     plt.plot(dates, high, label="Typical High")
     plt.plot(dates, low, label="Typical Low")
 
