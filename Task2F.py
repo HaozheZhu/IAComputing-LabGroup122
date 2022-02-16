@@ -14,6 +14,7 @@ def run(N):
     stations_plot = stations_highest_rel_level(stations, N)
     for station in stations_plot: 
         dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=2))
+        print(dates)
         plot_water_level_with_fit(station, dates, levels, 4)
 
 
