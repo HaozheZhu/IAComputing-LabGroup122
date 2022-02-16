@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib
-from floodsystem.plot import plot_water_levels
+from floodsystem.plot import plot_water_level_with_fit
 from floodsystem.datafetcher import fetch_measure_levels
 from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.flood import stations_highest_rel_level
@@ -12,10 +12,9 @@ def run(N):
     stations = build_station_list()
     update_water_levels(stations)
     stations_plot = stations_highest_rel_level(stations, N)
-    for i in range(len(stations_plot)): 
+    for station in stations_plot: 
         dates, levels = fetch_measure_levels(stations_plot[i].measure_id, dt=datetime.timedelta(days=2))
-    poly, d0 = polyfit(dates, levels, 4)
-    
+        plot_water_level_with_fit(station, dates, levels, 4)
 
 
 if __name__ == "__main__":
