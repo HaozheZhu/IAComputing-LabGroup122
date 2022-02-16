@@ -23,7 +23,6 @@ def stations_highest_rel_level(stations, N):
     valid_stations = []
     for station in stations: 
         if station.relative_water_level() != None:
-            if station.relative_water_level() < 100:
-                valid_stations.append(station)
+            valid_stations.append(station)
     valid_stations.sort(key=getRelLevel2, reverse=True)
     return valid_stations[:N]

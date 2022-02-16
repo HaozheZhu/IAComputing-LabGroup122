@@ -5,7 +5,8 @@
 for manipulating/modifying station data
 
 """
-
+from floodsystem.datafetcher import fetch_measure_levels
+import datetime
 
 class MonitoringStation:
     """This class represents a river level monitoring station"""
@@ -50,7 +51,8 @@ class MonitoringStation:
 
     def relative_water_level(self): 
         '''Function that returns relative water level of the instance if data is available and consistent'''
-        if self.typical_range_consistent() and self.latest_level != None:
+        dates, levels = fetch_measure_levels(self.measure_id, dt=datetime.timedelta(days=2))
+        if self.typical_range_consistent() and dates:
             return (self.latest_level-self.typical_range[0])/(self.typical_range[1]-self.typical_range[0])
         else: 
             return None
