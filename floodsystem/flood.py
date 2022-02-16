@@ -1,5 +1,3 @@
-
-
 def getRelLevel1(item): 
     """Helper function to sort the list of tuples (river name, relative level) according to relative level"""
     
@@ -25,6 +23,7 @@ def stations_highest_rel_level(stations, N):
     valid_stations = []
     for station in stations: 
         if station.relative_water_level() != None:
-            valid_stations.append(station)
+            if station.relative_water_level() < 100:
+                valid_stations.append(station)
     valid_stations.sort(key=getRelLevel2, reverse=True)
     return valid_stations[:N]
