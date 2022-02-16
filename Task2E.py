@@ -19,7 +19,7 @@ def run(N):
                 high = [stations_plot[i].typical_range[1] for j in range(len(levels))]
                 low = [stations_plot[i].typical_range[0] for j in range(len(levels))]
             
-            axs[i].plot(dates, levels)
+            axs[i].plot(dates, levels, label=stations_plot[i].name)
             axs[i].plot(dates, high, label="Typical High")
             axs[i].plot(dates, low, label="Typical Low")
             axs[i].legend()
