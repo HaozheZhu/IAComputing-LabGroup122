@@ -17,21 +17,27 @@ def polyfit(dates, levels, p):
 
 def floodrisk(station, dates, levels):
     count = 0
-    poly, d0 = polyfit(dates, levels, 10)
-    x = matplotlib.dates.date2num(dates)
-    x1 = np.linspace(x[0], x[-1], 1000)
-    grad = (poly(x1[999]-d0)-poly(x1[0]-d0))
-    if grad > 1.0:
-        count += 2
-    elif grad > 0.5:
-        count += 1
-    if station.relative_water_level > 1:
-        count += 1
-    if count == 3:
-        return "Severe"
-    elif count == 2:
-        return "High"
-    elif count == 1:
-        return "Moderate"
+    if station.relative_water_level() != None:
+        if station.relative_water_level() <100:
+            poly, d0 = polyfit(dates, levels, 10)
+            x = matplotlib.dates.date2num(dates)
+            x1 = np.linspace(x[0], x[-1], 1000)
+            grad = (poly(x1[999]-d0)-poly(x1[0]-d0))
+            if grad > 1.0:
+                count += 2
+            elif grad > 0.5:
+                count += 1
+            if station.relative_water_level() > 1:
+                count += 1
+            if count == 3:
+                return "Severe"
+            elif count == 2:
+                return "High"
+            elif count == 1:
+                return "Moderate"
+            else:
+                return "Low"
+        else:
+            return "Low"
     else:
-        return "Low"
+        return "Low"        
