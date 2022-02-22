@@ -3,9 +3,8 @@
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib
-import 
+
 
 
 def polyfit(dates, levels, p):
@@ -16,7 +15,7 @@ def polyfit(dates, levels, p):
     d0 = x[0]
     return poly, d0
 
-def floodrisk(dates, levels):
+def floodrisk(station, dates, levels):
     count = 0
     poly, d0 = polyfit(dates, levels, 10)
     x = matplotlib.dates.date2num(dates)
@@ -26,7 +25,7 @@ def floodrisk(dates, levels):
         count += 2
     elif grad > 0.5:
         count += 1
-    if relative_water_level > 1:
+    if station.relative_water_level > 1:
         count += 1
     if count == 3:
         return "Severe"
