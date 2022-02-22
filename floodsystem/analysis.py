@@ -15,11 +15,11 @@ def polyfit(dates, levels, p):
     d0 = x[0]
     return poly, d0
 
-def floodrisk(station, dates, levels):
+def floodrisk(station, dates, levels, p):
     count = 0
     if station.relative_water_level() != None:
         if station.relative_water_level() <100:
-            poly, d0 = polyfit(dates, levels, 10)
+            poly, d0 = polyfit(dates, levels, p)
             x = matplotlib.dates.date2num(dates)
             x1 = np.linspace(x[0], x[-1], 1000)
             grad = (poly(x1[999]-d0)-poly(x1[0]-d0))
