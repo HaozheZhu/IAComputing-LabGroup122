@@ -8,6 +8,7 @@ import matplotlib
 
 
 def polyfit(dates, levels, p):
+    print(dates)
     x = matplotlib.dates.date2num(dates)
     y = levels
     p_coeff = np.polyfit(x - x[0], y, p)
@@ -17,8 +18,6 @@ def polyfit(dates, levels, p):
 
 def floodrisk(station, dates, levels, p):
     count = 0
-    print(type(dates))
-    print(dates)
     if dates != None:
         if station.relative_water_level() <100:
             poly, d0 = polyfit(dates, levels, p)
