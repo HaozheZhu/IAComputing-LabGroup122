@@ -20,7 +20,7 @@ def run():
             moderate.append(station.name)
         elif floodriskgrad(dates, levels) == "Low":
             low.append(station.name)
-    print severe 
+    print (severe) 
 
 
 
