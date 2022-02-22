@@ -12,13 +12,13 @@ def run():
     low=[]
     for station in stations:
         dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=1))
-        if floodrisk(dates, levels) == "Severe":
+        if floodrisk(station, dates, levels) == "Severe":
             severe.append(station.name)
-        elif floodrisk(dates, levels) == "High":
+        elif floodrisk(station, dates, levels) == "High":
             high.append(station.name)
-        elif floodrisk(dates, levels) == "Moderate":
+        elif floodrisk(station, dates, levels) == "Moderate":
             moderate.append(station.name)
-        elif floodrisk(dates, levels) == "Low":
+        elif floodrisk(station, dates, levels) == "Low":
             low.append(station.name)
     print (severe) 
 
