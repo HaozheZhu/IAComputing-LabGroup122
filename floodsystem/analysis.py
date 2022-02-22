@@ -19,7 +19,7 @@ def floodrisk(station, dates, levels, p):
     count = 0
     print(type(dates))
     print(dates)
-    if station.relative_water_level() != None:
+    if dates != None:
         if station.relative_water_level() <100:
             poly, d0 = polyfit(dates, levels, p)
             x = matplotlib.dates.date2num(dates)
