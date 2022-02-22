@@ -14,13 +14,13 @@ def run():
         dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=2))
         risk = floodrisk(station, dates, levels, 10)
         if risk == "Severe":
-            severe.append(station.measure_id)
+            severe.append(station.name)
         elif risk == "High":
-            high.append(station.measure_id)
+            high.append(station.name)
         elif risk == "Moderate":
-            moderate.append(station.measure_id)
+            moderate.append(station.name)
         elif risk == "Low":
-            low.append(station.measure_id)
+            low.append(station.name)
     print(severe) 
 
 
