@@ -5,6 +5,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
+import 
+
 
 def polyfit(dates, levels, p):
     x = matplotlib.dates.date2num(dates)
@@ -13,3 +15,24 @@ def polyfit(dates, levels, p):
     poly = np.poly1d(p_coeff)
     d0 = x[0]
     return poly, d0
+
+def floodrisk(dates, levels):
+    count = 0
+    poly, d0 = polyfit(dates, levels, 10)
+    x = matplotlib.dates.date2num(dates)
+    x1 = np.linspace(x[0], x[-1], 1000)
+    grad = (poly(x1[999]-d0)-poly(x1[0]-d0))
+    if grad > 1.0:
+        count += 2
+    elif grad > 0.5:
+        count += 1
+    if relative_water_level > 1:
+        count += 1
+    if count == 3:
+        return "Severe"
+    elif count == 2:
+        return "High"
+    elif count == 1:
+        return "Moderate"
+    else:
+        return "Low"
