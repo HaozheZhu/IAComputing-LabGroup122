@@ -14,8 +14,11 @@ def run():
     count = 0
     for station in stations:
         count += 1
-        dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=1))
-        risk = floodrisk(station, dates, levels, 10)
+        try:
+            dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=1))
+            risk = floodrisk(station, dates, levels, 10)
+        except:
+            risk = "Low"
         if risk == "Severe":
             severe.append(station.name)
         elif risk == "High":
