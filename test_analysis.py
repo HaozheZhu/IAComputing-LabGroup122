@@ -15,11 +15,15 @@ def test_polyfit():
 
 def test_floodrisk():
     stations = build_station_list()
+    count=0
     for station in stations:
-        count += 1
         try:
             dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=1))
             risk = floodrisk(station, dates, levels, 4)
         except:
             risk = "Low"
-    assert risk
+        assert risk
+        count+=1
+        if count>5:
+            break
+
