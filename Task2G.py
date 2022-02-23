@@ -28,8 +28,8 @@ def run():
         elif risk == "Low":
             low.append(station.name)
         print(count, risk)
-        '''if count>200:
-            break'''
+        if count>200:
+            break
     print(severe)
     print(high)
     print(moderate)
