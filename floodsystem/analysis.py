@@ -13,6 +13,7 @@ def polyfit(dates, levels, p):
         y = levels
         p_coeff = np.polyfit(x - x[0], y, p)
         poly = np.poly1d(p_coeff)
+        print(poly)
         d0 = x[0]
         return poly, d0
     except:
