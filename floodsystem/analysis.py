@@ -13,7 +13,6 @@ def polyfit(dates, levels, p):
         y = levels
         p_coeff = np.polyfit(x - x[0], y, p)
         poly = np.poly1d(p_coeff)
-        print(poly)
         d0 = x[0]
         return poly, d0
     except:
@@ -24,8 +23,8 @@ def floodrisk(station, dates, levels, p):
     poly, d0 = polyfit(dates, levels, p)
     if poly != False:
         x = matplotlib.dates.date2num(dates)
-        x1 = np.linspace(x[0], x[-1], 250)
-        grad = (poly(x1[249]-d0)-poly(x1[0]-d0))
+        x1 = np.linspace(x[0], x[-1], 100)
+        grad = (poly(x1[49]-d0)-poly(x1[0]-d0))*2
         if grad > 1.0:
             count += 2
         elif grad > 0.5:
