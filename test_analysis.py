@@ -13,8 +13,8 @@ def test_polyfit():
     dates, levels = fetch_measure_levels(stations[0].measure_id, dt=datetime.timedelta(days=2))
     polyfit(dates, levels, 4)
 
-def test_floodrisk():
+'''def test_floodrisk():
     stations = build_station_list()
     dates, levels = fetch_measure_levels(stations[0].measure_id, dt=datetime.timedelta(days=1))
     risk = floodrisk(stations[0], dates, levels, 4)
-    assert risk
+    assert risk'''
