@@ -14,18 +14,20 @@ def run():
     count = 0
     for station in stations:
         count += 1
-        print(count)
-        dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=1))
-        risk = floodrisk(station, dates, levels, 10)
-        if risk == "Severe":
-            severe.append(station.name)
-        elif risk == "High":
-            high.append(station.name)
-        elif risk == "Moderate":
-            moderate.append(station.name)
-        elif risk == "Low":
+        try:
+            dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=1))
+            risk = floodrisk(station, dates, levels, 5)
+            if risk == "Severe":
+                severe.append(station.name)
+            elif risk == "High":
+                high.append(station.name)
+            elif risk == "Moderate":
+                moderate.append(station.name)
+            elif risk == "Low":
+                low.append(station.name)
+            print(count, risk)
+        except:
             low.append(station.name)
-        print(risk)
     print(severe) 
 
 

@@ -27,15 +27,17 @@ def floodrisk(station, dates, levels, p):
                 poly, d0 = polyfit(dates, levels, p)
                 if poly != False:
                     x = matplotlib.dates.date2num(dates)
-                    x1 = np.linspace(x[0], x[-1], 1000)
+                    x1 = np.linspace(x[0], x[-1], 250)
                     grad = (poly(x1[999]-d0)-poly(x1[0]-d0))
                     if grad > 1.0:
                         count += 2
                     elif grad > 0.5:
                         count += 1
-                    if station.relative_water_level() > 1:
+                    if station.relative_water_level() > 2:
+                        count += 2
+                    elif station.relative_water_level() > 1:
                         count += 1
-                    if count == 3:
+                    if count >= 3:
                         return "Severe"
                     elif count == 2:
                         return "High"
