@@ -28,7 +28,9 @@ def run():
         elif risk == "Low":
             low.append(station.name)
         print(count, risk)
-    print(severe) 
+    print(severe)
+    print(high)
+    print(moderate)
 
 
 
