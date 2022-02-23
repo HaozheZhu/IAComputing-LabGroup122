@@ -10,3 +10,7 @@ to start the activity.
 Milestone 1:  
 Tasks B, C, F --> Thomas  
 Tasks D, E    --> Haozhe  
+
+Milestone 2:   
+Tasks B, C, E --> Haozhe  
+Tasks F, G --> Thomas  
