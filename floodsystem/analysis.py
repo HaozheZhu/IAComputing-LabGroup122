@@ -32,9 +32,11 @@ def floodrisk(station, dates, levels, p):
                         count += 2
                     elif grad > 0.5:
                         count += 1
-                    if station.relative_water_level() > 1:
+                    if station.relative_water_level() > 2:
+                        count += 2
+                    elif station.relative_water_level() > 1:
                         count += 1
-                    if count == 3:
+                    if count >= 3:
                         return "Severe"
                     elif count == 2:
                         return "High"
